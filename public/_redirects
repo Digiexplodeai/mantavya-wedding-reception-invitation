@@ -1,0 +1,4 @@
+# Netlify SPA Redirect Rules
+/api/blessings/*   /.netlify/functions/blessings/:splat   200
+/api/blessings     /.netlify/functions/blessings          200
+/*                 /index.html                            200

@@ -1,0 +1,6 @@
+{
+  "name": "Mantavya & Nitika — The Royal Wedding Invitation",
+  "description": "An immersive royal Indian wedding invitation celebrating the Wedding Reception of Mantavya & Nitika on Saturday, 14th November 2026 at KS Grand, Rupnagar, Punjab.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

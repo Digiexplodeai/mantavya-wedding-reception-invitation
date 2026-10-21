@@ -1,0 +1,181 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-ivory: #F8F1E5;
+    --color-burgundy: #641F32;
+    --color-gold: #BE9759;
+    --color-champagne: #EAD7B7;
+    --color-wine: #391827;
+  }
+
+  html {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #F8F1E5;
+    color: #391827;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  body {
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+}
+
+/* Hide scrollbar across all browsers while keeping smooth natural scrolling */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.font-calligraphy {
+  font-family: 'Great Vibes', cursive;
+}
+
+.font-serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-sans {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-devanagari {
+  font-family: 'Noto Serif Devanagari', serif;
+}
+
+/* Subtle Rajasthani / Mughal Geometric Jaali Pattern */
+.royal-jaali-pattern {
+  background-image: radial-gradient(#BE9759 0.85px, transparent 0.85px),
+    radial-gradient(#641F32 0.65px, transparent 0.65px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+}
+
+/* Subtle Gold Shimmer for Couple Names */
+.gold-shimmer-text {
+  background: linear-gradient(
+    110deg,
+    #F8F1E5 20%,
+    #EAD7B7 42%,
+    #BE9759 50%,
+    #EAD7B7 58%,
+    #F8F1E5 80%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: royalGoldShimmer 7s ease-in-out infinite;
+}
+
+/* Luxury Gold Foil Ambient Sheen Sweep */
+@keyframes royalFoilSheen {
+  0%, 100% {
+    transform: translateX(-140%) skewX(-20deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.45;
+  }
+  30% {
+    transform: translateX(200%) skewX(-20deg);
+    opacity: 0;
+  }
+}
+
+.animate-foil-sheen {
+  animation: royalFoilSheen 4.2s ease-in-out infinite;
+}
+
+@keyframes royalGoldShimmer {
+  0%, 100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+}
+
+/* GPU-Composited Floating Flower Petals & Gold Particles */
+@keyframes royalPetalFall {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.72;
+  }
+  50% {
+    transform: translate3d(22px, 50vh, 0) rotate(160deg);
+  }
+  88% {
+    opacity: 0.65;
+  }
+  100% {
+    transform: translate3d(-16px, 108vh, 0) rotate(320deg);
+    opacity: 0;
+  }
+}
+
+.animate-royal-petal {
+  animation-name: royalPetalFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+/* Hide scrollbars on horizontal swipe gallery while keeping smooth touch scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* iPhone Safe Area Bottom Padding */
+.pb-safe {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gold-shimmer-text {
+    animation: none;
+  }
+  .animate-royal-petal {
+    animation: none;
+    display: none;
+  }
+}

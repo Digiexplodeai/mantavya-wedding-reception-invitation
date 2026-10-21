@@ -1,0 +1,46 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--legacy-peer-deps"
+
+# Netlify Serverless Functions
+[functions]
+  directory = "netlify/functions"
+
+# Route API requests to Netlify serverless function if deployed with functions
+[[redirects]]
+  from = "/api/blessings/*"
+  to = "/.netlify/functions/blessings/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/api/blessings"
+  to = "/.netlify/functions/blessings"
+  status = 200
+
+# Client-Side SPA Fallback Redirect
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Cache static assets for fast global CDN delivery
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/audio/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Accept-Ranges = "bytes"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
